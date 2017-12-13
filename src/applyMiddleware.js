@@ -1,6 +1,9 @@
 import compose from './compose'
 
 /**
+ * 顾名思义，applyMiddleware就是中间件的意思。
+ * applyMiddleware接收中间件为参数，并返回一个以createStore为参数的函数；
+ * 同时applyMiddleware又是createStore函数中的第三个参数
  * Creates a store enhancer that applies middleware to the dispatch method
  * of the Redux store. This is handy for a variety of tasks, such as expressing
  * asynchronous actions in a concise manner, or logging every action payload.
@@ -26,7 +29,7 @@ export default function applyMiddleware(...middlewares) {
       )
     }
     let chain = []
-
+    //中间件将最重要的两个方法 getState/dispatch整合出来，并传递给中间件使用，中间件处理完之后，返回一个新的dispatch
     const middlewareAPI = {
       getState: store.getState,
       dispatch: (...args) => dispatch(...args)
