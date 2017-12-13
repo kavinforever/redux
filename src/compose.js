@@ -1,4 +1,6 @@
 /**
+ * `compose` 可以接受一组函数参数，从右到左来组合多个函数，然后返回一个组合函数；
+ * compose的代码不难理解，它调用了ES5的Array.prototype.reduce方法，将形如fn(arg1)(arg2)(arg3)...的柯里化函数按照顺序执行。
  * Composes single-argument functions from right to left. The rightmost
  * function can take multiple arguments as it provides the signature for
  * the resulting composite function.
